@@ -1,11 +1,11 @@
 <?php
 
 $path = '../tools/xasset-cli/xasset-cli_mac';
-$aHandle = new \nabao\bdxasset\auth\Account($path);
+$aHandle = new \suptime\bdxasset\auth\Account($path);
 $account = $aHandle->createAccount();
 var_dump($account);
 
-$signer = new \nabao\bdxasset\auth\EcdsaCrypto($path);
+$signer = new \suptime\bdxasset\auth\EcdsaCrypto($path);
 $sign = $signer->signEcdsa($account['private_key'], '123');
 var_dump($sign);
 

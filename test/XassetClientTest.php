@@ -6,7 +6,7 @@ require_once('../../index.php');
 $binPath = XASSET_PATH . 'tools/xasset-cli/xasset-cli';
 //windows
 //$binPath = XASSET_PATH . 'tools/xasset-cli/xasset-cli.exe';
-$config = new \nabao\bdxasset\utils\XassetConfig(new \nabao\bdxasset\Auth\EcdsaCrypto($binPath));
+$config = new \suptime\bdxasset\utils\XassetConfig(new \suptime\bdxasset\Auth\EcdsaCrypto($binPath));
 
 $appId = 0;
 $ak = 'xxx';
@@ -14,7 +14,7 @@ $sk = 'xxx';
 $config->setCredentials($appId, $ak, $sk);
 
 $config->endPoint = "http://120.48.16.137:8360";
-$xHandle = new \nabao\bdxasset\client\XassetClient($config);
+$xHandle = new \suptime\bdxasset\client\XassetClient($config);
 
 $pubKey = '';
 $privtKey = '';

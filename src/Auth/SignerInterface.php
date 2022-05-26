@@ -1,6 +1,6 @@
 <?php
 
-namespace nabao\bdxasset\Auth;
+namespace suptime\bdxasset\Auth;
 
 interface SignerInterface
 {

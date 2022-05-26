@@ -3,8 +3,8 @@ require_once("./index.php");
 
 //binary file path
 $binPath = XASSET_PATH . 'tools/xasset-cli/xasset-cli';
-$config = new \nabao\bdxasset\common\config\XassetConfig(
-    new \nabao\bdxasset\auth\EcdsaCrypto($binPath)
+$config = new \suptime\bdxasset\common\config\XassetConfig(
+    new \suptime\bdxasset\auth\EcdsaCrypto($binPath)
 );
 
 $appId = 0;

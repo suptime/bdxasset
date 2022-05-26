@@ -1,6 +1,6 @@
 <?php
 
-namespace nabao\bdxasset\Utils;
+namespace suptime\bdxasset\Utils;
 
 /**
  * This module defines string constants for HTTP headers

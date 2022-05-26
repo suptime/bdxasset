@@ -1,9 +1,9 @@
 <?php
 
-namespace nabao\bdxasset\client;
+namespace suptime\bdxasset\client;
 
-use nabao\bdxasset\Exceptions\XassetException;
-use nabao\bdxasset\Utils\HttpUtils;
+use suptime\bdxasset\Exceptions\XassetException;
+use suptime\bdxasset\Utils\HttpUtils;
 
 abstract class BaseClient
 {

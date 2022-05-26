@@ -1,6 +1,6 @@
 <?php
 
-namespace nabao\bdxasset\Exceptions;
+namespace suptime\bdxasset\Exceptions;
 
 class XassetException extends \Exception
 {

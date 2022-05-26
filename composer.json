@@ -1,5 +1,5 @@
 {
-  "name": "nabao/bdxasset",
+  "name": "suptime/bdxasset",
   "type": "library",
   "keywords": [
     "baidusdk"
@@ -14,7 +14,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "nabao\\bdxasset": "src/"
+      "suptime\\bdxasset": "src/"
     }
   },
   "require-dev": {

@@ -1,8 +1,8 @@
 <?php
 
-namespace nabao\bdxasset\Utils;
+namespace suptime\bdxasset\Utils;
 
-use nabao\bdxasset\Auth\BceV1Signer;
+use suptime\bdxasset\Auth\BceV1Signer;
 
 class XassetConfig
 {

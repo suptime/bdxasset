@@ -1,13 +1,13 @@
 <?php
 
 
-namespace nabao\bdxasset;
+namespace suptime\bdxasset;
 
 
-use nabao\bdxasset\Auth\EcdsaCrypto;
-use nabao\bdxasset\Client\XassetClient;
-use nabao\bdxasset\Exceptions\XassetException;
-use nabao\bdxasset\Utils\XassetConfig;
+use suptime\bdxasset\Auth\EcdsaCrypto;
+use suptime\bdxasset\Client\XassetClient;
+use suptime\bdxasset\Exceptions\XassetException;
+use suptime\bdxasset\Utils\XassetConfig;
 
 class Xasset
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace nabao\bdxasset\Client;
+namespace suptime\bdxasset\Client;
 
-use nabao\bdxasset\Exceptions\XassetException;
+use suptime\bdxasset\Exceptions\XassetException;
 
 class XassetClient extends BaseClient
 {
     /**
-     * @var \nabao\bdxasset\auth\EcdsaCrypto
+     * @var \suptime\bdxasset\auth\EcdsaCrypto
      */
     private $crypto;
 

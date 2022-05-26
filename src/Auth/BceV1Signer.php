@@ -1,11 +1,11 @@
 <?php
 
-namespace nabao\bdxasset\Auth;
+namespace suptime\bdxasset\Auth;
 
-use nabao\bdxasset\Utils\SignOptions;
-use nabao\bdxasset\Utils\HttpHeaders;
-use nabao\bdxasset\Utils\HttpUtils;
-use nabao\bdxasset\Utils\DateUtils;
+use suptime\bdxasset\Utils\SignOptions;
+use suptime\bdxasset\Utils\HttpHeaders;
+use suptime\bdxasset\Utils\HttpUtils;
+use suptime\bdxasset\Utils\DateUtils;
 
 /**
  * The V1 implementation of Signer with the BCE signing protocol.

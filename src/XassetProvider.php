@@ -1,6 +1,6 @@
 <?php
 
-namespace nabao\bdxasset;
+namespace suptime\bdxasset;
 
 
 class XassetProvider extends \Illuminate\Support\ServiceProvider

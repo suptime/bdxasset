@@ -94,18 +94,20 @@ class Xasset
 
     /**
      * 读取配置
+     * @return mixed
      * @throws XassetException
      */
     private function getXassetConfig()
     {
         if (!function_exists('config')) {
-            $this->config = require_once __DIR__ . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'xasset.php';
+            $config = require_once __DIR__ . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'xasset.php';
         } else {
-            $this->config = config('xasset', null);
+            $config = config('xasset', null);
         }
-        if (!$this->config) {
+        if (!$config) {
             throw new XassetException('The xasset required configuration does not exist');
         }
+        return $config;
     }
 
     /**

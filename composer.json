@@ -1,9 +1,5 @@
 {
   "name": "suptime/bdxasset",
-  "type": "library",
-  "keywords": [
-    "baidusdk"
-  ],
   "license": "MIT",
   "description": "General composer loading package integrating Baidu's official SDK",
   "authors": [

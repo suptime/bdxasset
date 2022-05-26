@@ -1,0 +1,26 @@
+{
+  "name": "suptime/bdxasset",
+  "type": "library",
+  "keywords": [
+    "baidusdk"
+  ],
+  "license": "MIT",
+  "description": "General composer loading package integrating Baidu's official SDK",
+  "authors": [
+    {
+      "name": "ucasp",
+      "email": "ucasp@qq.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "suptime\\bdxasset\\": "src"
+    }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/suptime/bdxasset.git"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "nabao/bdxasset",
+  "type": "library",
+  "keywords": [
+    "baidusdk"
+  ],
+  "license": "MIT",
+  "description": "General composer loading package integrating Baidu's official SDK",
+  "authors": [
+    {
+      "name": "ucasp",
+      "email": "ucasp@qq.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "nabao\\bdxasset": "src/"
+    }
+  },
+  "require-dev": {
+    "php": ">=7.*"
+  }
+}

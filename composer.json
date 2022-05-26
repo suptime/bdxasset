@@ -13,11 +13,5 @@
       "suptime\\bdxasset\\": "src"
     }
   },
-  "minimum-stability": "dev",
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/suptime/bdxasset.git"
-    }
-  ]
+  "minimum-stability": "dev"
 }

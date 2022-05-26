@@ -4,6 +4,7 @@
 namespace suptime\bdxasset;
 
 
+use suptime\bdxasset\Auth\Account;
 use suptime\bdxasset\Auth\EcdsaCrypto;
 use suptime\bdxasset\Client\XassetClient;
 use suptime\bdxasset\Exceptions\XassetException;
@@ -13,6 +14,7 @@ class Xasset
 {
     private $binPath;
     private $config;
+    private $xassetConfig;
 
     /**
      * Xasset constructor.
@@ -24,17 +26,24 @@ class Xasset
 
         $this->binPath = $this->getBinPath();
 
-        $xassetConfig = new XassetConfig(
+        $this->xassetConfig = new XassetConfig(
             new EcdsaCrypto($this->binPath)
         );
 
         //设置凭据
-        $xassetConfig->setCredentials($this->config['app_id'], $this->config['ak'], $this->config['sk']);
+        $this->xassetConfig->setCredentials($this->config['app_id'], $this->config['ak'], $this->config['sk']);
         if ($this->config['api_domain']) {
-            $xassetConfig->endPoint = $this->config['api_domain'];
+            $this->xassetConfig->endPoint = $this->config['api_domain'];
         }
+    }
 
-        return new XassetClient($xassetConfig);
+    /**
+     * instance
+     * @return XassetClient
+     */
+    public function XassetClient()
+    {
+        return new XassetClient($this->xassetConfig);
     }
 
     /**
@@ -51,6 +60,40 @@ class Xasset
             'public_key' => $pubKey,
             'private_key' => $privtKey,
         ];
+    }
+
+    /**
+     * 生成一个新账号
+     * @return array|bool|mixed
+     */
+    public function createAccount()
+    {
+        $account = new Account($this->binPath);
+        return $account->createAccount();
+    }
+
+    /**
+     * 私钥签名
+     * @param $privtKey
+     * @param $msg
+     * @return string
+     */
+    public function signEcdsa($privtKey, $msg)
+    {
+        $crypto = new EcdsaCrypto($this->binPath);
+        return $crypto->signEcdsa($privtKey, $msg);
+    }
+
+    /**
+     * 支持pem格式的私钥签名
+     * @param $pemPrivtKey
+     * @param $oriMsg
+     * @return string
+     */
+    public function signEcdsaPem($pemPrivtKey, $oriMsg)
+    {
+        $crypto = new EcdsaCrypto($this->binPath);
+        return $crypto->signEcdsaPem($pemPrivtKey, $oriMsg);
     }
 
     /**
@@ -82,6 +125,6 @@ class Xasset
                 $platform = 'linux';
         }
 
-        return __DIR__ . './Bin/xasset-cli-' . $platform;
+        return __DIR__ . '/Bin/xasset-cli-' . $platform;
     }
 }

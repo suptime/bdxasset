@@ -1,23 +1,21 @@
 <?php
-require_once("./index.php");
 
-//binary file path
-$binPath = XASSET_PATH . 'tools/xasset-cli/xasset-cli';
-$config = new \suptime\bdxasset\common\config\XassetConfig(
-    new \suptime\bdxasset\auth\EcdsaCrypto($binPath)
-);
-
-$appId = 0;
-$ak = 'xxx';
-$sk = 'xxx';
-$config->setCredentials($appId, $ak, $sk);
-
-$config->endPoint = "http://120.48.16.137:8360";
-$xHandle = new XassetClient($config);
-
+$config = [
+    'system' => 'windows', //linux, mac, windows,
+    'api_domain' => '', //API接口地址
+    'app_id' => '', //APPID
+    'ak' => '', //AK
+    'sk' => '', //SK
+];
+$xasset = new \suptime\bdxasset\Xasset($config);
 //生成新的account
-$ac = new Account($binPath);
-$account = $ac->createAccount();
+$account = $xasset->createAccount();
+print_r($account);
+
+echo '<br/>';
+
+//xasset客户端实例
+$client = $xasset->XassetClient();
 
 //使用现有account
 /*$addr = '';
@@ -28,7 +26,6 @@ $account = array(
     'public_key' => $pubKey,
     'private_key' => $privtKey,
 );*/
-
-//文件相关接口
-$stoken = $xHandle->getStoken($account);
-var_dump($stoken);
+//获取stoken
+$stoken = $client->getStoken($account);
+print_r($stoken);

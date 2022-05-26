@@ -1,20 +1,14 @@
 <?php
-require_once('../../index.php');
 
-//binary file path
-//linux mac
-$binPath = XASSET_PATH . 'tools/xasset-cli/xasset-cli';
-//windows
-//$binPath = XASSET_PATH . 'tools/xasset-cli/xasset-cli.exe';
-$config = new \suptime\bdxasset\utils\XassetConfig(new \suptime\bdxasset\Auth\EcdsaCrypto($binPath));
-
-$appId = 0;
-$ak = 'xxx';
-$sk = 'xxx';
-$config->setCredentials($appId, $ak, $sk);
-
-$config->endPoint = "http://120.48.16.137:8360";
-$xHandle = new \suptime\bdxasset\client\XassetClient($config);
+$config = [
+    'system' => 'windows', //linux, mac, windows,
+    'api_domain' => '', //API接口地址
+    'app_id' => '', //APPID
+    'ak' => '', //AK
+    'sk' => '', //SK
+];
+$xasset = new \suptime\bdxasset\Xasset($config);
+$xHandle = $xasset->XassetClient();
 
 $pubKey = '';
 $privtKey = '';
@@ -50,7 +44,7 @@ $arrAssetInfo = array(
 );
 $strAssetInfo = json_encode($arrAssetInfo);
 
-$assetId = gen_asset_id($appId);
+$assetId = gen_asset_id($config['app_id']);
 $userId = 1231314;
 $price = 100;
 $res = $xHandle->createAsset($account, $assetId, 10000, $strAssetInfo, $price, $userId);
@@ -70,7 +64,7 @@ var_dump($res);
 $res = $xHandle->publishAsset($account, $assetId);
 var_dump($res);
 
-$shardId = gen_asset_id($appId);
+$shardId = gen_asset_id($config['app_id']);
 $userId = 123;
 $res = $xHandle->grantShard($account, $assetId, $shardId, $addr2, $price, $userId);
 var_dump($res);

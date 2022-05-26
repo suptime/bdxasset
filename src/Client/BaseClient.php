@@ -1,6 +1,6 @@
 <?php
 
-namespace suptime\bdxasset\client;
+namespace suptime\bdxasset\Client;
 
 use suptime\bdxasset\Exceptions\XassetException;
 use suptime\bdxasset\Utils\HttpUtils;

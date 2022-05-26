@@ -7,7 +7,7 @@ use suptime\bdxasset\Exceptions\XassetException;
 class XassetClient extends BaseClient
 {
     /**
-     * @var \suptime\bdxasset\auth\EcdsaCrypto
+     * @var \suptime\bdxasset\Auth\EcdsaCrypto
      */
     private $crypto;
 

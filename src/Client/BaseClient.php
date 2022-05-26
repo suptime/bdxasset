@@ -19,8 +19,6 @@ abstract class BaseClient
     // 请求服务重试次数
     const RequestRetryTimes = 3;
 
-    private $errCode = 0;
-    private $errMsg = "";
     private $isHttps = false;
     private $host = "";
     private $signer;
@@ -60,44 +58,6 @@ abstract class BaseClient
     public function isHttps()
     {
         return $this->isHttps;
-    }
-
-    /**
-     * @param
-     * @return
-     **/
-    public function getErrCode()
-    {
-        return $this->errCode;
-    }
-
-    /**
-     * @param
-     * @return
-     **/
-    public function getErrMsg()
-    {
-        return $this->errMsg;
-    }
-
-    /**
-     * @param
-     * @return
-     **/
-    protected function setError($errCode, $errMsg)
-    {
-        $this->errCode = $errCode;
-        $this->errMsg = $errMsg;
-    }
-
-    /**
-     * @param
-     * @return
-     **/
-    protected function cleanError()
-    {
-        $this->errCode = 0;
-        $this->errMsg = "";
     }
 
     /**
@@ -166,9 +126,6 @@ abstract class BaseClient
         if (empty($respRes) || !isset($respRes['errno'])) {
             $error = sprintf("response error.url:%s response:%s", $url, $res['response']);
             throw new XassetException($error, BaseClient::ClientErrnoRespErr);
-            /*;
-            $this->setError(BaseClient::ClientErrnoRespErr, $error);
-            return false;*/
         }
 
         return array(
@@ -193,8 +150,6 @@ abstract class BaseClient
         if ($curlRes["result"] == false) {
             $error = sprintf("curl server fail.url:%s curl_info:%s", $url, json_encode($curlRes));
             throw new XassetException($error, BaseClient::ClientErrnoCurlErr);
-            /*$this->setError(BaseClient::ClientErrnoCurlErr, $error);
-            return false;*/
         }
 
         return array(

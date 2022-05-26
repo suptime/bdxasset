@@ -9,6 +9,9 @@
     }
   ],
   "autoload": {
+    "files": [
+      "src/Utils/helpers.php"
+    ],
     "psr-4": {
       "suptime\\bdxasset\\": "src"
     }

@@ -13,6 +13,7 @@
       "suptime\\bdxasset\\": "src"
     }
   },
+  "minimum-stability": "dev",
   "repositories": [
     {
       "type": "vcs",

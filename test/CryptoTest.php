@@ -1,11 +1,19 @@
 <?php
 
+use suptime\bdxasset\Xasset;
+use suptime\bdxasset\auth\EcdsaCrypto;
+
+
+$client = new \suptime\bdxasset\Xasset();
+var_dump($client->getStoken());
+
+
 $path = '../tools/xasset-cli/xasset-cli_mac';
-$aHandle = new \suptime\bdxasset\auth\Account($path);
+$aHandle = new Account($path);
 $account = $aHandle->createAccount();
 var_dump($account);
 
-$signer = new \suptime\bdxasset\auth\EcdsaCrypto($path);
+$signer = new EcdsaCrypto($path);
 $sign = $signer->signEcdsa($account['private_key'], '123');
 var_dump($sign);
 

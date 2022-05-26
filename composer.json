@@ -14,7 +14,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "suptime\\bdxasset": "src/"
+      "suptime\\bdxasset\\": "src/"
     }
   },
   "require-dev": {

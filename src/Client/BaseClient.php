@@ -92,7 +92,7 @@ abstract class BaseClient
      */
     protected function doRequest($uri, $param = [], $body = [])
     {
-        $time = new DateTime();
+        $time = new \DateTime();
         $arrUrl = parse_url($this->host);
         $header = array(
             "Host" => $arrUrl['host'],

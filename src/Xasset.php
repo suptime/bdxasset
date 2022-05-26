@@ -20,15 +20,11 @@ class Xasset
      * Xasset constructor.
      * @throws XassetException
      */
-    public function __construct()
+    public function __construct($config = [])
     {
-        $this->getXassetConfig();
-
+        $this->config = $config ? $config : $this->getXassetConfig();
         $this->binPath = $this->getBinPath();
-
-        $this->xassetConfig = new XassetConfig(
-            new EcdsaCrypto($this->binPath)
-        );
+        $this->xassetConfig = new XassetConfig(new EcdsaCrypto($this->binPath));
 
         //设置凭据
         $this->xassetConfig->setCredentials($this->config['app_id'], $this->config['ak'], $this->config['sk']);
@@ -102,7 +98,11 @@ class Xasset
      */
     private function getXassetConfig()
     {
-        $this->config = config('xasset', null);
+        if (!function_exists('config')) {
+            $this->config = require_once __DIR__ . DIRECTORY_SEPARATOR . 'Config' . DIRECTORY_SEPARATOR . 'xasset.php';
+        } else {
+            $this->config = config('xasset', null);
+        }
         if (!$this->config) {
             throw new XassetException('The xasset required configuration does not exist');
         }
@@ -124,7 +124,6 @@ class Xasset
             default:
                 $platform = 'linux';
         }
-
-        return __DIR__ . '/Bin/xasset-cli-' . $platform;
+        return __DIR__ . DIRECTORY_SEPARATOR . 'Bin' . DIRECTORY_SEPARATOR . 'xasset-cli-' . $platform;
     }
 }

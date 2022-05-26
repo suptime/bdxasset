@@ -14,10 +14,16 @@
   ],
   "autoload": {
     "psr-4": {
-      "suptime\\bdxasset\\": "src/"
+      "suptime\\bdxasset\\": "src"
     }
   },
   "require-dev": {
     "php": ">=7.*"
-  }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/suptime/bdxasset.git"
+    }
+  ]
 }

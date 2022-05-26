@@ -18,16 +18,12 @@ class DateUtils
     const ALTERNATE_ISO8601_DATE_FORMAT = "Y-m-d\TH:i:s\Z";
 
     /**
-     * @var \DateTimeZone The UTC timezone object.
+     * create utc timezone
+     * @return \DateTimeZone
      */
-    public static $UTC_TIMEZONE;
-
-    /**
-     * Initialize $UTC_TIMEZONE
-     */
-    public static function __init()
+    public static function UTCTimezone()
     {
-        self::$UTC_TIMEZONE = new \DateTimeZone("UTC");
+        return new \DateTimeZone("UTC");
     }
 
     /**
@@ -40,7 +36,7 @@ class DateUtils
      */
     public static function parseAlternateIso8601Date($dateString)
     {
-        return \DateTime::createFromFormat(self::ALTERNATE_ISO8601_DATE_FORMAT, $dateString, self::$UTC_TIMEZONE);
+        return \DateTime::createFromFormat(self::ALTERNATE_ISO8601_DATE_FORMAT, $dateString, self::UTCTimezone());
     }
 
     /**
@@ -63,7 +59,7 @@ class DateUtils
      */
     public static function parseRfc822Date($dateString)
     {
-        return \DateTime::createFromFormat(\DateTime::RFC822, $dateString, self::$UTC_TIMEZONE);
+        return \DateTime::createFromFormat(\DateTime::RFC822, $dateString, self::UTCTimezone());
     }
 
     /**
@@ -77,5 +73,3 @@ class DateUtils
         return $datetime->format(\DateTime::RFC822);
     }
 }
-
-DateUtils::__init();

@@ -69,7 +69,7 @@ class BceV1Signer implements SignerInterface
         } else {
             $timestamp = new \DateTime();
         }
-        $timestamp->setTimezone(DateUtils::$UTC_TIMEZONE);
+        $timestamp->setTimezone(DateUtils::UTCTimezone());
 
         $iso8601Date = DateUtils::formatAlternateIso8601Date($timestamp);
         $authString = self::BCE_AUTH_VERSION . '/' . $accessKeyId . '/' . $iso8601Date . '/' . $expirationInSeconds;

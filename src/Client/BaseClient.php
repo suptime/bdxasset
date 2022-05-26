@@ -168,13 +168,13 @@ abstract class BaseClient
      */
     protected function curl_exec($url, $body, $header = null, $method = 'POST')
     {
-        $res = array(
+        $res = [
             "result" => true,
             "errno" => 0,
             "error" => "",
             "http_code" => 200,
             "response" => "",
-        );
+        ];
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);

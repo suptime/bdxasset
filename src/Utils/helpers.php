@@ -10,7 +10,10 @@ function gen_asset_id($appId)
     return gen_id_help($appId, 0);
 }
 
-// 生成nonce值
+/**
+ * 生成nonce值
+ * @return int
+ */
 function gen_nonce()
 {
     $randId1 = gen_rand_id();
@@ -21,7 +24,10 @@ function gen_nonce()
     return $nonce;
 }
 
-// 生成伪唯一ID
+/**
+ * 生成伪唯一ID
+ * @return int
+ */
 function gen_rand_id()
 {
     $nano = nanosectime();
@@ -33,6 +39,9 @@ function gen_rand_id()
     return $randId;
 }
 
+/**
+ * @return int
+ */
 function nanosectime()
 {
     list($msec, $sec) = explode(' ', microtime());
@@ -41,6 +50,11 @@ function nanosectime()
     return (int)$nanotime;
 }
 
+/**
+ * @param $baseId
+ * @param $flag
+ * @return int
+ */
 function gen_id_help($baseId, $flag)
 {
     $content = sprintf("%d#%d#%d", $baseId, $flag, nanosectime());
@@ -60,7 +74,11 @@ function gen_id_help($baseId, $flag)
     return $id;
 }
 
-// 对字符串Hash后转化为整数
+/**
+ * 对字符串Hash后转化为整数
+ * @param $content
+ * @return int
+ */
 function sign_to_int($content)
 {
     $digest = md5($content);
@@ -72,10 +90,4 @@ function sign_to_int($content)
     $sign2 = $seg2 + $seg4;
     $sign = ($sign1 & 0x00000000ffffffff) | ($sign2 << 32);
     return $sign;
-}
-
-//获取执行文件路径
-function get_Xasset_Cli_path()
-{
-
 }

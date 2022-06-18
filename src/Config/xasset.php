@@ -1,9 +1,17 @@
 <?php
 return [
-    'system' => 'windows', //linux, mac, windows,
-    'api_domain' => '', //API接口地址
+    //服务器系统 linux, mac, windows
+    'system' => 'linux',
 
-    'app_id' => '', //APPID
-    'ak' => '', //AK
-    'sk' => '', //SK
+    // API接口地址
+    'api_domain' => 'http://120.48.16.137:8360',
+
+    //APPID
+    'app_id' => '',
+
+    //AK
+    'ak' => '',
+
+    //SK
+    'sk' => '',
 ];

@@ -2,12 +2,6 @@
   "name": "suptime/bdxasset",
   "license": "MIT",
   "description": "General composer loading package integrating Baidu's official SDK",
-  "authors": [
-    {
-      "name": "ucasp",
-      "email": "ucasp@qq.com"
-    }
-  ],
   "autoload": {
     "files": [
       "src/Utils/helpers.php"
